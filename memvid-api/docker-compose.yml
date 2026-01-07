@@ -1,0 +1,18 @@
+services:
+  memvid-api:
+    build: .
+    container_name: memvid-api
+    ports:
+      - "8100:8000"
+    volumes:
+      - ./memvid-data:/data
+      - ./documents:/documents
+    environment:
+      - MEMVID_API_KEY=${MEMVID_API_KEY}
+    restart: unless-stopped
+    networks:
+      - docker_selfn8n
+
+networks:
+  docker_selfn8n:
+    external: true
