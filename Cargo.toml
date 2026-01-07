@@ -56,6 +56,7 @@ same-file = "1.0"
 fs-err = "2.11"
 atomic-write-file = "0.2"
 dirs-next = "2.0"
+clap = { version = "4.4", features = ["derive"] }
 
 tantivy = { version = "0.24.2", optional = true, default-features = false, features = ["mmap"] }
 ort = { version = "2.0.0-rc.10", optional = true }
@@ -116,6 +117,10 @@ replay = []
 encryption = ["dep:argon2", "dep:aes-gcm", "dep:rand", "dep:zeroize"]
 # SymSpell-based PDF text cleanup - fixes broken word spacing
 symspell_cleanup = ["dep:symspell"]
+
+[[bin]]
+name = "memvid"
+path = "src/main.rs"
 
 [dev-dependencies]
 fastrand = "2.0"
